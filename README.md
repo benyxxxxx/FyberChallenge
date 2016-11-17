@@ -1,5 +1,5 @@
 # FyberChallenge
-a work for Fyber application
+a homework for application to Fyber 
 
 
 ![alt tag](https://github.com/benyxxxxx/FyberChallenge/blob/8f7adac0a3018cf1e6a58791e1b4880c6e63d5d8/Screen1.jpg)
