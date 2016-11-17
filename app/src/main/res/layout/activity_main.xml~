@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+
+    <data>
+        <variable name="model" type="com.ssong.app.fyberapplication.viewmodel.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        >
+    <RelativeLayout
+        android:id="@+id/layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/button_send_req"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Send Request"
+            android:onClick="@{model.onReqButtonClick}"
+            />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv_input_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_button" >
+
+        <LinearLayout
+            android:id="@+id/layout_input_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp" >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_appid"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="*appid" />
+
+                <EditText
+                    android:id="@+id/et_appid"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:maxLength="256"
+                    android:singleLine="true"
+                    android:text="@={model.param_appid}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_uid"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="*uid" />
+
+                <EditText
+                    android:id="@+id/et_uid"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:maxLength="256"
+                    android:singleLine="true"
+                    android:text="@={model.param_uid}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="*format" />
+
+                <RadioGroup
+                    android:id="@+id/rg_format"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rd_json"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={model.param_isJson}"
+                        android:text="json" />
+
+                    <RadioButton
+                        android:id="@+id/rd_xml"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="xml" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_apikey"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="*API Key" />
+
+                <EditText
+                    android:id="@+id/et_apikey"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:maxLength="256"
+                    android:singleLine="true"
+                    android:text="@={model.param_apikey}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_offer_types"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="offer_types" />
+
+                <EditText
+                    android:id="@+id/et_offer_types"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:maxLength="256"
+                    android:singleLine="true"
+                    android:text="@={model.param_offer_types}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_locale"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="locale" />
+
+                <EditText
+                    android:id="@+id/et_locale"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:maxLength="16"
+                    android:singleLine="true"
+                    android:text="@={model.param_locale}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_ip"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
+                    android:text="ip" />
+
+                <EditText
+                    android:id="@+id/et_ip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:maxLength="64"
+                    android:singleLine="true"
+                    android:text="@={model.param_ip}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#666666" />
+
+        </LinearLayout>
+    </ScrollView>
+    </RelativeLayout>
+</layout>
