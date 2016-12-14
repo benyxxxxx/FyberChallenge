@@ -77,14 +77,10 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		intended(hasComponent(OffersActivity.class.getName()));
 
 	}
-	
-	@Rule
-	public IntentsTestRule<OffersActivity> mOffersActivity = new IntentsTestRule<OffersActivity>(OffersActivity.class) {
-			@Override
-			protected Intent getActivityIntent() {
-				Intent intent = new Intent(getTargetContext(), OffersActivity.class);
-				return intent;
-			}
-		};
+
+    
+    @Rule
+    public IntentsTestRule<OffersActivity> mOffersActivity =
+            new IntentsTestRule<OffersActivity>(OffersActivity.class);
 
 }
